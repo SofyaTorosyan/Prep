@@ -1,0 +1,10 @@
+﻿  utility.h
+C:\Users\sofya\source\repos\Lib\utility.h(44,55): warning C4244: 'argument': conversion from '_Rep' to 'double', possible loss of data
+          with
+          [
+              _Rep=__int64
+          ]
+x64\Debug\utility.obj : warning LNK4042: object specified more than once; extras ignored
+Lib.obj : warning LNK4006: "struct Duration __cdecl getDuration(class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >,class std::chrono::time_point<struct std::chrono::steady_clock,class std::chrono::duration<__int64,struct std::ratio<1,1000000000> > >)" (?getDuration@@YA?AUDuration@@V?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@V234@@Z) already defined in utility.obj; second definition ignored
+Lib.obj : warning LNK4006: "void __cdecl printMinDuration(class std::map<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >,struct Duration,struct std::less<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > >,class std::allocator<struct std::pair<class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const ,struct Duration> > >)" (?printMinDuration@@YAXV?$map@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UDuration@@U?$less@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@UDuration@@@std@@@2@@std@@@Z) already defined in utility.obj; second definition ignored
+  Lib.vcxproj -> C:\Users\sofya\source\repos\Sorting\x64\Debug\Lib.lib
