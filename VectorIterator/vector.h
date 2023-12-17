@@ -88,7 +88,7 @@ class vector
                 }
 	    };
     public:
-        vector()
+        vector() noexcept
         :   m_size(0),
 	        m_capacity(0),
 	        m_data(nullptr)
@@ -99,19 +99,22 @@ class vector
         explicit vector(const int size, const T& value = T())
         : m_size(size),
 	      m_capacity(size),
-	      m_data(new T[m_size])
+	      m_data(new T[m_size]) /// what will be if exception throws
         {
+            // std::fill
 	        for (int i = 0; i < m_size; i++) {
 		        m_data[i] = value;
 	        }
         }
         
+        /*
         vector(const std::initializer_list<T>& list) 
         :   m_size(list.size()),
             m_capacity(list.size()),
             m_data(new T[m_size])
         {
             int i = 0;
+            // std::copy
             for (auto elem : list)
             {
                 m_data[i++] = elem;
@@ -122,14 +125,15 @@ class vector
         :
 	        m_size(other.m_size),
 	        m_capacity(other.m_capacity),
-            m_data(new T[m_size])
+            m_data(new T[m_capacity])
         {   
-        	for (int i = 0; i < m_size; i++) {
+            // std::copy
+        	for (int i = 0; i < m_size; ++i) {
         		m_data[i] = other.m_data[i];
         	}
         }
-
-        friend void swap(vector& left, vector& right) 
+        // check again!!!!
+        void swap(vector& left, vector& right) 
         {
             std::swap(left.m_capacity, right.m_capacity);
             std::swap(left.m_size, right.m_size);
@@ -138,19 +142,19 @@ class vector
 
         vector& operator=(vector<T> other)
         {
-        	/*
-            delete m_data;
-        	m_data = new T[other.m_size];
-        	m_size = other.m_size;
-        	m_capacity = other.m_capacity;
-            std::copy(other.m_data, other.m_data + m_size, m_data);
-            return *this;
-            */
+        	
+            // delete m_data;
+        	// m_data = new T[other.m_size];
+        	// m_size = other.m_size;
+        	// m_capacity = other.m_capacity;
+            // std::copy(other.m_data, other.m_data + m_size, m_data);
+            // return *this;
+            
            swap(*this, other);
            return *this;
         }
 
-        void push_back(const T& val) {
+        void push_back(const T& val) { // keep exception safety
         	if (m_size == m_capacity) {
         		if (m_capacity == 0)
         		{
@@ -162,8 +166,9 @@ class vector
         		}
         		T* tmp(m_data);
         		m_data = new T[m_capacity];
+                // std::copy
         		for (int i = 0; i < m_size; i++) {
-        			m_data[i] = tmp[i];
+        			m_data[i] = tmp[i]; // what will be here? if operator= will throw exception
         		}
         		delete[] tmp;
         	}
@@ -242,7 +247,7 @@ class vector
 
         void clear() noexcept  // can't delete push an exception?
         {
-            delete [] m_data;
+            delete [] m_data; // don't deleteeeee
             m_size = 0;
         }
 
@@ -260,13 +265,14 @@ class vector
                 std::copy(m_data + pos + 1, m_data + m_size + 1, tmp.m_data + m_data + pos + 1);
                 swap(tmp, *this);
             }
-            /*if((m_size + 1 ) < m_capacity)
-            {
-                std::copy(m_data, m_data + pos, tmp.m_data);
-                tmp[pos] = value;
-                std::copy(m_data + pos + 1, m_data + m_size + 1, tmp.m_data + m_data + pos + 1);
-            }*/
+            // if((m_size + 1 ) < m_capacity)
+            // {
+            //     std::copy(m_data, m_data + pos, tmp.m_data);
+            //     tmp[pos] = value;
+            //     std::copy(m_data + pos + 1, m_data + m_size + 1, tmp.m_data + m_data + pos + 1);
+            // }
         }
+        */
 
     private:
         int m_size;
