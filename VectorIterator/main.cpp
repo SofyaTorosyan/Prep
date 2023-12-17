@@ -7,7 +7,7 @@ int main()
 {
     testDefaultConstr();
     testValueConstr();
-    //testAccessOperator();
+    testAccessOperator();
     //testCopyConstructor();
 
     // vector<int> vec(4, 5);

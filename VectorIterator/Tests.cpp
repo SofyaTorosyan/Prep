@@ -17,15 +17,30 @@ void testValueConstr()
     assert(vec.capacity() == size); 
     for (int i = 0; i < vec.size(); ++i)
     {
-        //assert(vec[i] == val);
+        assert(vec[i] == val);
     }
 }
 
-// void testAccessOperator()
-// {
-//     vector<int> vec(3, 2);
-//     assert(vec[2] == 2);
-// }
+void testAccessOperator()
+{
+    // general vector
+    vector<int> vec1(3, 2);
+    assert(vec1[2] == 2);
+
+    // empty vector
+    vector<int> vec2;
+    bool exceptionThrown = false;
+
+    try
+    {
+       assert(vec2[0] == 1); // empty vector => should throw
+    }
+    catch(...)
+    {
+        exceptionThrown = true;
+    }
+    assert(exceptionThrown);
+}
 
 // void testCopyConstructor()
 // {
