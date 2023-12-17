@@ -99,12 +99,9 @@ class vector
         explicit vector(const int size, const T& value = T())
         : m_size(size),
 	      m_capacity(size),
-	      m_data(new T[m_size]) /// what will be if exception throws
+	      m_data(new T[m_size]) /// what will be if exception throws--> nothing, vector's initial state will remain the same
         {
-            // std::fill
-	        for (int i = 0; i < m_size; i++) {
-		        m_data[i] = value;
-	        }
+            std::fill(m_data, m_data + m_size, value);
         }
         
         /*
@@ -191,6 +188,7 @@ class vector
         	}
         	std::cout << std::endl;
         }
+        */
 
         int size() const noexcept
         {
@@ -201,7 +199,8 @@ class vector
         {
             return m_capacity;
         }
-
+        
+        /*
         T& operator[](const int index) const {
 	        if (index >= m_size) {
 	    	    throw std::out_of_range{"index is out of range"};

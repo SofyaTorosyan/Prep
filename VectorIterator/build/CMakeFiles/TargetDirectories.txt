@@ -1,0 +1,3 @@
+C:/Users/sofya/Prep/VectorIterator/build/CMakeFiles/vector.dir
+C:/Users/sofya/Prep/VectorIterator/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/sofya/Prep/VectorIterator/build/CMakeFiles/ZERO_CHECK.dir
