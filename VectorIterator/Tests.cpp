@@ -87,9 +87,33 @@ void testAssignment()
     {
         assert(vec2[i] == 100);
     }
+
     // vector states
     assert(vec1.size() == 3);
     assert(vec1.capacity() == 3);
     assert(vec2.size() == 3);
     assert(vec2.capacity() == 3);
+
+    vec2.push_back(4);
+    assert(vec2.size() == 4);
+    assert(vec2.capacity() == 6);
+}
+
+void testPushBack()
+{
+    // general vector
+    vector<int> vec1(2, 100);
+    vec1.push_back(1);
+    vec1.push_back(2);
+    assert(vec1.size() == 4);
+    assert(vec1.capacity() == 4);
+    vec1.push_back(3);
+    assert(vec1.size() == 5);
+    assert(vec1.capacity() == 8);
+
+    // empty vector
+    vector<int> vec2;
+    vec2.push_back(1);
+    assert(vec2.size() == 1);
+    assert(vec2.capacity() == 1);
 }

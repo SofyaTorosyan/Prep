@@ -133,29 +133,21 @@ class vector
            swap(*this, other);
            return *this;
         }
-        
-        /*
+
         void push_back(const T& val) { // keep exception safety
-        	if (m_size == m_capacity) {
-        		if (m_capacity == 0)
-        		{
-        			m_capacity++;
-        		}
-        		else
-        		{
-        			m_capacity *= 2;
-        		}
-        		T* tmp(m_data);
-        		m_data = new T[m_capacity];
-                // std::copy
-        		for (int i = 0; i < m_size; i++) {
-        			m_data[i] = tmp[i]; // what will be here? if operator= will throw exception
-        		}
-        		delete[] tmp;
-        	}
+            if (m_size == m_capacity) {
+                int cap = m_capacity;
+                cap = cap == 0 ? ++cap : cap *= 2;
+            	T* tmp(m_data);
+            	m_data = new T[cap];
+                m_capacity = cap;
+                std::copy(tmp, tmp + m_size, m_data);
+            	delete[] tmp;
+            }
         	m_data[m_size++] = val;
         }
 
+        /*
         void reserve(const int cap) {
         	m_capacity = cap;
         	T* tmp(m_data);

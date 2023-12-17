@@ -11,6 +11,7 @@ int main()
     testCopyConstructor();
     testInitializerListConstr();
     testAssignment();
+    testPushBack();
     
     // vector<int> vec(4, 5);
     // vector<int> vec1 = vec;

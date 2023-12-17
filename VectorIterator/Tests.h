@@ -8,3 +8,4 @@ void testAccessOperator();
 void testCopyConstructor();
 void testInitializerListConstr();
 void testAssignment();
+void testPushBack();
