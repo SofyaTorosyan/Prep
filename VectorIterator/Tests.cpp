@@ -42,19 +42,25 @@ void testAccessOperator()
     assert(exceptionThrown);
 }
 
-// void testCopyConstructor()
-// {
-//     int size = 3;
-//     int val = 2;
-//     vector<int> vec(size, val);
-//     vector<int> vecCopy(vec);
-//     for (int i = 0; i < vecCopy.size(); ++i)
-//     {
-//         assert(vecCopy[i] == val);
-//     }
+void testCopyConstructor()
+{
+    // general vector
+    vector<int> vec1(4, 100);
+    int size = vec1.size();
+    int capacity = vec1.capacity();
+    vector<int> vecCopy1(vec1);
+    for (int i = 0; i < vecCopy1.size(); ++i)
+    {
+        assert(vecCopy1[i] == 100);
+    }
+    assert(vec1.size() == size);
+    assert(vec1.capacity() == capacity);
+    assert(vecCopy1.size() == size);
+    assert(vecCopy1.capacity() == capacity);
 
-//     vector<int> vec1;
-//     vector<int> vecCopy1(vec1);
-//     assert(vecCopy1.size() == 0);
-//     assert(vecCopy1.capacity() == 0);
-// }
+    // empty vector
+    vector<int> vec2;
+    vector<int> vecCopy2(vec2);
+    assert(vecCopy2.size() == 0);
+    assert(vecCopy2.capacity() == 0);
+}

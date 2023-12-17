@@ -116,18 +116,16 @@ class vector
                 m_data[i++] = elem;
             }
         }
-
+        */
         vector(const vector<T>& other) 
         :
 	        m_size(other.m_size),
 	        m_capacity(other.m_capacity),
             m_data(new T[m_capacity])
         {   
-            // std::copy
-        	for (int i = 0; i < m_size; ++i) {
-        		m_data[i] = other.m_data[i];
-        	}
+            std::copy(other.m_data, other.m_data + m_capacity, m_data);
         }
+        /*
         // check again!!!!
         void swap(vector& left, vector& right) 
         {
@@ -205,7 +203,7 @@ class vector
 	        }
 	        return m_data[index];
         }
-        
+
         /*
         Iterator begin() const
         {

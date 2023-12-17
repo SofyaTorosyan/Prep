@@ -8,7 +8,7 @@ int main()
     testDefaultConstr();
     testValueConstr();
     testAccessOperator();
-    //testCopyConstructor();
+    testCopyConstructor();
 
     // vector<int> vec(4, 5);
     // vector<int> vec1 = vec;
