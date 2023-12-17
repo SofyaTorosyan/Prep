@@ -249,7 +249,7 @@ class vector
         {
             delete [] m_data; // don't deleteeeee
             m_size = 0;
-        }
+        }  
 
         Iterator insert(Iterator pos, const int value)
         {
