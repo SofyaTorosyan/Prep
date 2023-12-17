@@ -9,7 +9,8 @@ int main()
     testValueConstr();
     testAccessOperator();
     testCopyConstructor();
-
+    testInitializerListConstr();
+    
     // vector<int> vec(4, 5);
     // vector<int> vec1 = vec;
     // vec1.push_back(2);

@@ -103,20 +103,15 @@ class vector
         {
             std::fill(m_data, m_data + m_size, value);
         }
-        /*
+
         vector(const std::initializer_list<T>& list) 
         :   m_size(list.size()),
             m_capacity(list.size()),
             m_data(new T[m_size])
         {
-            int i = 0;
-            // std::copy
-            for (auto elem : list)
-            {
-                m_data[i++] = elem;
-            }
+            std::copy(list.begin(), list.begin() + m_size, m_data);
         }
-        */
+
         vector(const vector<T>& other) 
         :
 	        m_size(other.m_size),

@@ -6,3 +6,4 @@ void testDefaultConstr();
 void testValueConstr();
 void testAccessOperator();
 void testCopyConstructor();
+void testInitializerListConstr();

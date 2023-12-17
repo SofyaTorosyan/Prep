@@ -64,3 +64,16 @@ void testCopyConstructor()
     assert(vecCopy2.size() == 0);
     assert(vecCopy2.capacity() == 0);
 }
+
+void testInitializerListConstr()
+{
+    // general vector
+    vector<int> vec1 = {1, 2, 3};
+    assert(vec1.size() == 3);
+    assert(vec1.capacity() == 3);
+
+    // empty vector
+    vector<int> vec2 = {};
+    assert(vec2.size() == 0);
+    assert(vec2.capacity() == 0);
+}
