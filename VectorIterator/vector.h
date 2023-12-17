@@ -120,9 +120,8 @@ class vector
         {   
             std::copy(other.m_data, other.m_data + m_capacity, m_data);
         }
-        /*
-        // check again!!!!
-        void swap(vector& left, vector& right) 
+
+        friend void swap(vector<T>& left, vector<T>& right) 
         {
             std::swap(left.m_capacity, right.m_capacity);
             std::swap(left.m_size, right.m_size);
@@ -131,18 +130,11 @@ class vector
 
         vector& operator=(vector<T> other)
         {
-        	
-            // delete m_data;
-        	// m_data = new T[other.m_size];
-        	// m_size = other.m_size;
-        	// m_capacity = other.m_capacity;
-            // std::copy(other.m_data, other.m_data + m_size, m_data);
-            // return *this;
-            
            swap(*this, other);
            return *this;
         }
-
+        
+        /*
         void push_back(const T& val) { // keep exception safety
         	if (m_size == m_capacity) {
         		if (m_capacity == 0)

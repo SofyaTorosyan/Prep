@@ -77,3 +77,19 @@ void testInitializerListConstr()
     assert(vec2.size() == 0);
     assert(vec2.capacity() == 0);
 }
+
+void testAssignment()
+{
+    // general vector
+    vector<int> vec1(3, 100);
+    vector<int> vec2 = vec1;
+    for (int i = 0; i < vec2.size(); ++i)
+    {
+        assert(vec2[i] == 100);
+    }
+    // vector states
+    assert(vec1.size() == 3);
+    assert(vec1.capacity() == 3);
+    assert(vec2.size() == 3);
+    assert(vec2.capacity() == 3);
+}

@@ -7,3 +7,4 @@ void testValueConstr();
 void testAccessOperator();
 void testCopyConstructor();
 void testInitializerListConstr();
+void testAssignment();

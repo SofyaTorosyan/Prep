@@ -10,6 +10,7 @@ int main()
     testAccessOperator();
     testCopyConstructor();
     testInitializerListConstr();
+    testAssignment();
     
     // vector<int> vec(4, 5);
     // vector<int> vec1 = vec;
