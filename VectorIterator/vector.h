@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <algorithm>
+#include <iterator>
 #include <iostream>
 
 template <typename T>
@@ -134,7 +135,8 @@ class vector
            return *this;
         }
 
-        void push_back(const T& val) { // keep exception safety
+        void push_back(const T& val)  // keep exception safety
+        { 
             if (m_size == m_capacity) {
                 int cap = m_capacity;
                 cap = cap == 0 ? ++cap : cap *= 2;
@@ -146,7 +148,6 @@ class vector
             }
         	m_data[m_size++] = val;
         }
-
         /*
         void reserve(const int cap) {
         	m_capacity = cap;
@@ -157,14 +158,16 @@ class vector
         	}
         	delete[] tmp;
         }
+        */
 
-        void print() {
-        	for (int i = 0; i < m_size; i++) {
-        		std::cout << m_data[i] << " ";
-        	}
+        void print() const 
+        {
+            std::cout << "size: "     << m_size     << std::endl;
+            std::cout << "capacity: " << m_capacity << std::endl;
+            std::cout << "data: ";
+        	copy(m_data, m_data + m_size, std::ostream_iterator<T>(std::cout, " "));
         	std::cout << std::endl;
         }
-        */
 
         int size() const noexcept
         {

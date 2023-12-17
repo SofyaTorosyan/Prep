@@ -97,6 +97,8 @@ void testAssignment()
     vec2.push_back(4);
     assert(vec2.size() == 4);
     assert(vec2.capacity() == 6);
+
+    vec2.print();
 }
 
 void testPushBack()
