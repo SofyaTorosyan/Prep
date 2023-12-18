@@ -10,3 +10,6 @@ void testInitializerListConstr();
 void testAssignment();
 void testPushBack();
 void testReserve();
+void testBeginEnd();
+void testEmpty();
+void testClear();

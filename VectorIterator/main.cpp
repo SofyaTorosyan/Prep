@@ -13,7 +13,10 @@ int main()
     testAssignment();
     testPushBack();
     testReserve();
-
+    testBeginEnd();
+    testEmpty();
+    testClear();
+    
     // vector<int> vec(4, 5);
     // vector<int> vec1 = vec;
     // vec1.push_back(2);

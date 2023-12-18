@@ -142,3 +142,53 @@ void testReserve()
     assert(vec2.size() == 0);
     assert(vec2.capacity() == 10);
 }
+
+void testBeginEnd()
+{
+    vector<int> vec1 = {1, 2, 3};
+    assert(*vec1.begin() == 1);
+    assert(vec1.begin() + 3 == vec1.end());
+
+    vector<int> vec2;
+    assert(vec2.begin() == vec2.end());
+
+    /*
+    bool exceptionThrown = false;
+    try
+    {
+       assert(*vec1.end() == 0); // out of range access => should throw
+    }
+    catch(...)
+    {
+        exceptionThrown = true;
+    }
+    assert(exceptionThrown);
+    */ // thrown exception isn't catched. assertion failer.
+}
+
+void testEmpty()
+{
+    vector<int> vec1;
+    assert(vec1.empty() == true);
+    vec1.push_back(1);
+    assert(vec1.empty() == false);
+
+    vector<int> vec2 = {1, 2, 3};
+    assert(vec2.empty() == false);
+
+    vector<int> vec3 = vec2;
+    assert(vec2.empty() == false);
+    assert(vec3.empty() == false);
+}
+
+void testClear()
+{
+    vector<int> vec1 = {1, 2, 3};
+    vec1.clear();
+    assert(vec1.size() == 0);
+    assert(vec1.capacity() == 3);
+    vec1.push_back(2);
+    assert(vec1.size() == 1);
+    assert(vec1.capacity() == 3);
+}
+

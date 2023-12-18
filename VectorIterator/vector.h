@@ -87,6 +87,11 @@ class vector
                 {
                     return !(m_ptr < it.m_ptr);
                 }
+
+                bool operator==(Iterator& it)
+                {
+                    return !(m_ptr < it.m_ptr) && !(m_ptr > it.m_ptr);
+                }
 	    };
     public:
         vector() noexcept
@@ -187,13 +192,12 @@ class vector
 	        return m_data[index];
         }
 
-        /*
-        Iterator begin() const
+        Iterator begin() const noexcept
         {
             return Iterator(m_data);
         }
 
-        Iterator end() const
+        Iterator end() const noexcept
         {
             return Iterator(m_data + m_size);
         }
@@ -203,6 +207,7 @@ class vector
             return m_size == 0;
         }
 
+        /*
         void resize(const int count)
         {
             if (count == m_size) 
@@ -223,13 +228,14 @@ class vector
                 swap(temp, *this);
             }
         }
+        */
 
-        void clear() noexcept  // can't delete push an exception?
+        void clear() noexcept
         {
-            delete [] m_data; // don't deleteeeee
             m_size = 0;
         }
-
+        
+        /*
         Iterator insert(Iterator pos, const int value)
         {
             if (pos < begin() || pos > end())
