@@ -148,17 +148,18 @@ class vector
             }
         	m_data[m_size++] = val;
         }
-        /*
+
         void reserve(const int cap) {
-        	m_capacity = cap;
+            if (cap <= m_capacity)
+            {
+                return;
+            }
         	T* tmp(m_data);
-        	m_data = new T[m_capacity];
-        	for (int i = 0; i < m_size; i++) {
-        		m_data[i] = tmp[i];
-        	}
+        	m_data = new T[cap];
+            m_capacity = cap;
+            std::copy(tmp, tmp + m_size, m_data);
         	delete[] tmp;
         }
-        */
 
         void print() const 
         {

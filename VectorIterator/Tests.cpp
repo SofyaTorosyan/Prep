@@ -119,3 +119,26 @@ void testPushBack()
     assert(vec2.size() == 1);
     assert(vec2.capacity() == 1);
 }
+
+void testReserve()
+{
+    // general vector
+    vector<int> vec1(3, 100);
+    vec1.reserve(2);
+    assert(vec1.size() == 3);
+    assert(vec1.capacity() == 3);
+
+    vec1.reserve(10);
+    assert(vec1.size() == 3);
+    assert(vec1.capacity() == 10);
+
+    vec1.push_back(1);
+    assert(vec1.size() == 4);
+    assert(vec1.capacity() == 10);
+
+    // empty vector
+    vector<int> vec2;
+    vec2.reserve(10);
+    assert(vec2.size() == 0);
+    assert(vec2.capacity() == 10);
+}

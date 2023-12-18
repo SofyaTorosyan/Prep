@@ -9,3 +9,4 @@ void testCopyConstructor();
 void testInitializerListConstr();
 void testAssignment();
 void testPushBack();
+void testReserve();
